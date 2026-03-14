@@ -2,8 +2,7 @@
 title: "when1lone 구축기 — Claude Code로 사업 기반을 짜고 있다"
 date: 2026-03-14
 tags: ["when1lone", "claude-code", "build-in-public"]
-status: draft
-draft: true
+weight: 1
 ---
 
 전 직장에서 운영 자동화를 직접 만들어 썼다.
