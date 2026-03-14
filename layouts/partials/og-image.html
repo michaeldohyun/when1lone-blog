@@ -1,0 +1,24 @@
+{{- $title := .Title | default site.Title -}}
+{{- $bg := resources.Get "images/og-background.png" -}}
+{{- if $bg -}}
+  {{- $img := $bg.Filter
+    (images.Text $title (dict
+      "color" "#ffffff"
+      "size" 48
+      "linespacing" 14
+      "x" 80
+      "y" 240
+    ))
+  -}}
+  {{- $img = $img.Filter
+    (images.Text "when1lone" (dict
+      "color" "#a1a1aa"
+      "size" 24
+      "x" 80
+      "y" 520
+    ))
+  -}}
+  <meta property="og:image" content="{{ $img.Permalink }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ $img.Permalink }}">
+{{- end -}}
