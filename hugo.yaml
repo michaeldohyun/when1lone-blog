@@ -1,0 +1,40 @@
+baseURL: https://michaeldohyun.github.io/when1lone-blog/
+languageCode: ko
+title: when1lone
+theme: PaperMod
+
+params:
+  defaultTheme: auto
+  showReadingTime: true
+  showPostNavLinks: true
+  showBreadCrumbs: true
+  showShareButtons: false
+  showCodeCopyButtons: true
+  homeInfoParams:
+    title: when1lone
+    content: 업무 자동화를 직접 만들어 쓰다가, 이걸 남한테도 해주고 싶어졌다.
+  socialIcons:
+    - name: linkedin
+      url: https://www.linkedin.com/in/michaeldohyun
+
+menu:
+  main:
+    - identifier: posts
+      name: 글
+      url: /posts/
+      weight: 10
+    - identifier: about
+      name: 소개
+      url: /about/
+      weight: 20
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  highlight:
+    style: monokai
+    lineNos: false
