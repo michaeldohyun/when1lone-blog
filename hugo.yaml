@@ -1,27 +1,26 @@
 baseURL: https://michaeldohyun.github.io/when1lone-blog/
-languageCode: ko
+theme: hugo-bearblog
 title: when1lone
-theme: hugo-book
+languageCode: ko
+enableRobotsTXT: true
+
+permalinks:
+  blog: /:slug/
 
 params:
-  BookTheme: auto
-  BookToC: true
-  BookSection: posts
-  BookMenuBundle: /menu
+  description: 업무 자동화를 직접 만들어 쓰다가, 이걸 남한테도 해주고 싶어졌다.
+  title: when1lone
+  hideMadeWithLine: true
+  dateFormat: "2006-01-02"
 
-menu:
-  after:
-    - name: 소개
-      url: /about/
-      weight: 10
+markup:
+  highlight:
+    style: friendly
+    lineNos: true
+    lineNumbersInTable: false
+    codeFences: true
 
 outputs:
   home:
     - HTML
     - RSS
-    - JSON
-
-markup:
-  highlight:
-    style: monokai
-    lineNos: false
