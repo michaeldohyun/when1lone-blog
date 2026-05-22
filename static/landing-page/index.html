@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perth Link | 서호주 퍼스 워홀 안심 매칭 플랫폼</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="호주 퍼스 현지 건설/타일 일자리와 감성 셰어하우스, 차량 카풀을 단 한 번에 해결하는 안심 매칭 서비스. TFN 100% 법정 시급 준수, 100% 임금 체불 보장 '퍼스 커버'와 함께 두려움 없는 도전을 시작하세요.">
+  <meta property="og:title" content="Perth Link | 서호주 퍼스 워홀 안심 매칭 플랫폼">
+  <meta property="og:description" content="타일 시공 일자리부터 감성 독방 셰어하우스, 정착 인프라 보증까지. 에어비앤비처럼 안심하고 선택하는 퍼스 워홀 패키지.">
+  <meta property="og:image" content="assets/perth_lifestyle.png">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-anchor logo-icon"></i>
+        <span class="logo-text">Perth<span>Link</span></span>
+      </a>
+      
+      <!-- Search Bar Capsule (Airbnb Style) -->
+      <div class="search-capsule" id="searchCapsule">
+        <button class="search-tab active" data-search="job">
+          <span class="label">일자리</span>
+          <span class="value" id="searchJobVal">타일 조공/기공</span>
+        </button>
+        <div class="divider"></div>
+        <button class="search-tab" data-search="stay">
+          <span class="label">셰어하우스</span>
+          <span class="value" id="searchStayVal">독방 보장</span>
+        </button>
+        <div class="divider"></div>
+        <button class="search-tab" data-search="ready">
+          <span class="label">준비 상태</span>
+          <span class="value" id="searchReadyVal">비자 신청 단계</span>
+        </button>
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      
+      <div class="user-menu">
+        <a href="#roi-calculator" class="menu-link hide-mobile">소득 계산기</a>
+        <a href="#guarantee-section" class="menu-link hide-mobile">안심 보증</a>
+        <button class="menu-profile-btn" onclick="openApplyModal()">
+          <i class="fa-solid fa-bars"></i>
+          <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="page-container">
+    
+    <!-- Hero / Intro Carousel Section -->
+    <section class="hero-section">
+      <div class="hero-image-container">
+        <img src="assets/perth_lifestyle.png" alt="퍼스 라이프스타일 해변" class="hero-image">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content-card">
+        <span class="badge"><i class="fa-solid fa-sparkles"></i> 100% 합법 & 안전 보증</span>
+        <h1>일당 35만원 일자리와<br>감성 셰어하우스를 한 번에.</h1>
+        <p>한국의 건설/타일 경력 청년을 서호주 퍼스 현역 한인 사업자와 1:1로 직접 연결합니다. 집 구하기 대란도, 임금 체불 두려움도 없는 차세대 워홀 안착 시스템.</p>
+        <div class="hero-buttons">
+          <a href="#package-grid" class="btn btn-brand">안심 패키지 둘러보기</a>
+          <button class="btn btn-outline" onclick="openApplyModal()">1:1 카톡 상담 받기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Airbnb Categories Tab Bar -->
+    <section class="categories-bar">
+      <div class="categories-container" id="categoriesContainer">
+        <button class="category-tab active" data-category="all">
+          <i class="fa-solid fa-border-all"></i>
+          <span>전체 패키지</span>
+        </button>
+        <button class="category-tab" data-category="tiler-assistant">
+          <i class="fa-solid fa-trowel"></i>
+          <span>초보 조공 특화</span>
+        </button>
+        <button class="category-tab" data-category="tiler-expert">
+          <i class="fa-solid fa-hammer"></i>
+          <span>중간 기공 매칭</span>
+        </button>
+        <button class="category-tab" data-category="car-included">
+          <i class="fa-solid fa-car"></i>
+          <span>출퇴근 카풀 제공</span>
+        </button>
+        <button class="category-tab" data-category="premium-house">
+          <i class="fa-solid fa-house-chimney-window"></i>
+          <span>독방 셰어 특화</span>
+        </button>
+        <button class="category-tab" data-category="builder">
+          <i class="fa-solid fa-helmet-safety"></i>
+          <span>종합 빌더 현장</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Airbnb Package Grid (The Perth Packages) -->
+    <section class="packages-section">
+      <div class="section-header">
+        <h2>퍼스 안심 정착 패키지</h2>
+        <p>현장 일자리 일당과 셰어하우스 방이 완전히 세트로 구성되어 즉시 매칭되는 리얼 검증 리스트</p>
+      </div>
+      
+      <div class="package-grid" id="packageGrid">
+        
+        <!-- Card 1 -->
+        <article class="package-card" data-category="tiler-assistant premium-house car-included" onclick="openDetailModal(1)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/perth_house.png" alt="Morley 감성 셰어하우스" class="card-img active">
+              <img src="assets/tile_work.png" alt="Morley 시공 현장" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <div class="badge-tag">실시간 최다 지원</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Morley, 퍼스 북동부</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.97 (후기 14개)</span>
+            </div>
+            <h3 class="card-title">Morley 신축 타운하우스 타일 조공 + 북유럽풍 감성 셰어 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 100% 보장</span>
+              <span class="tag tag-car">카풀 픽업 무료</span>
+              <span class="tag tag-green">초보 대환영</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (조공 기준)</span>
+                <span class="value">AUD $300 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (독방 보장)</span>
+                <span class="value">AUD $250 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="package-card" data-category="tiler-expert premium-house" onclick="openDetailModal(2)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/tile_work.png" alt="Victoria Park 시공 현장" class="card-img active">
+              <img src="assets/perth_house.png" alt="Victoria Park 셰어하우스" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <div class="badge-tag tag-hot">기공 급구</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Victoria Park, 퍼스 남부</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.92 (후기 8개)</span>
+            </div>
+            <h3 class="card-title">Vic Park 상업 시설 리노베이션 타일 기공 + 역세권 신축 셰어 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 주 5일 보장</span>
+              <span class="tag tag-car">도보 5분 현장</span>
+              <span class="tag tag-blue">경력 1년 이상</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (중간공 기준)</span>
+                <span class="value">AUD $480 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (신축 독방)</span>
+                <span class="value">AUD $270 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="package-card" data-category="tiler-assistant car-included" onclick="openDetailModal(3)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/perth_house.png" alt="Scarborough 셰어하우스" class="card-img active">
+              <img src="assets/perth_lifestyle.png" alt="Scarborough 해변" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <div class="badge-tag">바다 도보 5분</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Scarborough, 퍼스 서부</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.95 (후기 21개)</span>
+            </div>
+            <h3 class="card-title">Scarborough 해변 리조트 타일 메인 보조 + 비치 하우스 셰어 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 수당 지급</span>
+              <span class="tag tag-car">차량 픽업 매칭</span>
+              <span class="tag tag-green">체력 우수자 우대</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (기초 조공)</span>
+                <span class="value">AUD $290 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (오션뷰 셰어)</span>
+                <span class="value">AUD $260 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="package-card" data-category="builder premium-house" onclick="openDetailModal(4)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/tile_work.png" alt="Subiaco 종합 빌더 현장" class="card-img active">
+              <img src="assets/perth_house.png" alt="Subiaco 셰어하우스" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Subiaco, 퍼스 전통 부촌</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.88 (후기 6개)</span>
+            </div>
+            <h3 class="card-title">Subiaco 최고급 목조 주택 내장 마감 보조 + 최고급 맨션 셰어 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 및 연금 100%</span>
+              <span class="tag tag-car">자차 우대(기름값 지원)</span>
+              <span class="tag tag-blue">현역 조공 우대</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (경력자 대우)</span>
+                <span class="value">AUD $350 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (마스터룸 수준)</span>
+                <span class="value">AUD $315 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="package-card" data-category="tiler-assistant premium-house car-included" onclick="openDetailModal(5)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/perth_house.png" alt="Joondalup 셰어하우스" class="card-img active">
+              <img src="assets/tile_work.png" alt="Joondalup 현장" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <div class="badge-tag tag-hot">여성 선배 추천</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Joondalup, 퍼스 북부</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 5.0 (후기 18개)</span>
+            </div>
+            <h3 class="card-title">Joondalup 프랜차이즈 매장 바닥 타일 시공 보조 + 조용한 단독주택 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 캐주얼 보장</span>
+              <span class="tag tag-car">카풀 및 출퇴근 안심</span>
+              <span class="tag tag-green">비전공자 환영</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (여성/초보 기준)</span>
+                <span class="value">AUD $300 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (마당 뷰 독방)</span>
+                <span class="value">AUD $230 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="package-card" data-category="tiler-expert premium-house car-included" onclick="openDetailModal(6)">
+          <div class="card-media">
+            <div class="carousel-container">
+              <img src="assets/tile_work.png" alt="Fremantle 시공 현장" class="card-img active">
+              <img src="assets/perth_lifestyle.png" alt="Fremantle 해변" class="card-img">
+            </div>
+            <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="location"><i class="fa-solid fa-location-dot"></i> Fremantle, 퍼스 항구 도시</span>
+              <span class="rating"><i class="fa-solid fa-star"></i> 4.90 (후기 5개)</span>
+            </div>
+            <h3 class="card-title">Fremantle 신축 메디컬 센터 대형 타일러 매칭 + 올드타운 감성 셰어 독방</h3>
+            <div class="card-tags">
+              <span class="tag tag-tfn">TFN 주휴 수당 지급</span>
+              <span class="tag tag-car">출퇴근 무료 픽업</span>
+              <span class="tag tag-blue">타일러 경력 2년 이상</span>
+            </div>
+            <div class="card-price-row">
+              <div class="price-item">
+                <span class="label">일당 (고급 기공 기준)</span>
+                <span class="value">AUD $500 <span>/ 일</span></span>
+              </div>
+              <div class="price-item stay-price">
+                <span class="label">방값 (독방 테라스형)</span>
+                <span class="value">AUD $280 <span>/ 주</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- AirCover Style: Perth Cover (안심 보증) Section -->
+    <section class="guarantee-section" id="guarantee-section">
+      <div class="guarantee-card">
+        <div class="guarantee-logo-row">
+          <div class="logo-wrapper">
+            <i class="fa-solid fa-shield-heart shield-logo"></i>
+            <span class="guarantee-title">perth<span>cover</span></span>
+          </div>
+          <span class="badge badge-brand">플랫폼이 직접 100% 보증</span>
+        </div>
+        
+        <h2>호주 한인 워홀 최초,<br>임금 체불 및 오프라인 정착 안심 케어 시스템</h2>
+        <p>브로커의 무계약 웨이지 덤핑과 불법 소개 수수료에 지치셨나요? 퍼스 링크는 '에딧메이트'식 B2B 간접 보증 및 현지 인프라 락인 시스템을 적용하여, 여러분의 가장 안전한 호주 정착을 100% 약속합니다.</p>
+        
+        <div class="guarantee-grid">
+          <div class="guarantee-item">
+            <i class="fa-solid fa-file-invoice-dollar icon-purple"></i>
+            <h3>100% 임금 선지급 보장</h3>
+            <p>고용주가 돈을 주지 않거나 미루더라도 걱정 마세요. 플랫폼이 고용주에게 용역비를 선예치받고, 매주 금요일 플랫폼이 여러분에게 급여를 100% 먼저 입금합니다.</p>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa-solid fa-house-circle-check icon-red"></i>
+            <h3>감성 셰어하우스 즉시 입실 보장</h3>
+            <p>최악의 렌트 대란(Rental Crisis)을 뚫고 발품 팔 필요가 전혀 없습니다. 입국 즉시 플랫폼이 소유/제휴한 쾌적한 $200대 독방 셰어하우스에 캐리어만 들고 입주하세요.</p>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa-solid fa-car-tunnel icon-orange"></i>
+            <h3>출퇴근 차량 카풀 매칭</h3>
+            <p>새벽 6시 현장 출근도 무섭지 않습니다. 차량을 보유한 선배 워홀러 카풀 드라이버와 1:1 매칭하고, 유류비 보조를 통해 매일 아침 안전하게 현장까지 이동을 도웁니다.</p>
+          </div>
+          <div class="guarantee-item">
+            <i class="fa-solid fa-gavel icon-blue"></i>
+            <h3>현지 노무/세무 100% 밀착 지원</h3>
+            <p>공항 무료 픽업, USI 발급, 화이트 카드 1:1 화상 시험 코칭은 물론, 현지 노무/세무 신고 분쟁 시 플랫폼이 언제나 든든한 법적 보호자가 되어 줍니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Perth WHM ROI Calculator -->
+    <section class="calculator-section" id="roi-calculator">
+      <div class="calculator-container">
+        <div class="calc-info">
+          <span class="badge"><i class="fa-solid fa-coins"></i> 수치로 입증하는 ROI</span>
+          <h2>퍼스에서의 나의 월 실질 저축액은?</h2>
+          <p>한국 시공 조공(데모도)의 가혹한 현실에서 벗어나 호주 퍼스에서 벌 수 있는 진짜 순소득과 고정 지출을 실시간으로 확인해 보세요. HSL 기반의 현지 표준 단가를 실시간 반영합니다.</p>
+          
+          <div class="comparison-card">
+            <h4>한국 VS 호주 퍼스 월평균 소득 비교</h4>
+            <div class="bar-chart-container">
+              <div class="chart-row">
+                <span class="country">한국 조공 (월 20일 기준)</span>
+                <div class="bar bar-kr" style="--width: 30%">220만 원</div>
+              </div>
+              <div class="chart-row">
+                <span class="country">호주 퍼스 조공 (주 5일 TFN 기준)</span>
+                <div class="bar bar-au" style="--width: 85%">약 620만 원</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="calc-box">
+          <h3>실시간 소득 & 정착비 계산기</h3>
+          
+          <div class="input-group">
+            <label for="calc-job-type">시공 포지션 (선택)</label>
+            <select id="calc-job-type" class="calc-input">
+              <option value="300" selected>초보 조공 (일당 AUD $300 / 약 27만원)</option>
+              <option value="350">중간공 조공 (일당 AUD $350 / 약 31만 5천원)</option>
+              <option value="480">중간 기공 (일당 AUD $480 / 약 43만 2천원)</option>
+              <option value="500">숙련 타일러 기공 (일당 AUD $500 / 약 45만원)</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="calc-days">주간 근무 일수: <span id="calc-days-val">5일</span></label>
+            <input type="range" id="calc-days" min="4" max="6" value="5" class="calc-range">
+          </div>
+          
+          <div class="input-group">
+            <label for="calc-rent">주당 셰어하우스 방값: <span id="calc-rent-val">AUD $250</span></label>
+            <input type="range" id="calc-rent" min="200" max="350" step="10" value="250" class="calc-range">
+          </div>
+          
+          <div class="divider"></div>
+          
+          <div class="results-box">
+            <div class="result-row">
+              <span>월 예상 총 수입 (TFN 기준)</span>
+              <span class="value income-color" id="res-total-income">AUD $6,000 <span class="krw">(약 540만 원)</span></span>
+            </div>
+            <div class="result-row">
+              <span>월 고정 지출 (방값 + 생활비)</span>
+              <span class="value expense-color" id="res-total-expense">AUD $1,600 <span class="krw">(약 144만 원)</span></span>
+            </div>
+            <div class="result-divider"></div>
+            <div class="result-row highlight">
+              <span>월 실질 저축액 (Savings)</span>
+              <span class="value savings-color" id="res-net-savings">AUD $4,400 <span class="krw">(약 396만 원)</span></span>
+            </div>
+          </div>
+          
+          <button class="btn btn-brand btn-full" onclick="openApplyModal()">이 조건으로 안심 매칭 지원하기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 Steps to Perth Ansim Timeline -->
+    <section class="journey-section">
+      <div class="section-header">
+        <h2>퍼스 안심 정착 5단계 여정</h2>
+        <p>에어비앤비처럼 편안하게 따라가는 퍼스 100% 정착 플로우</p>
+      </div>
+      
+      <div class="timeline-row">
+        <div class="timeline-step">
+          <div class="step-num">01</div>
+          <h4>경력 매칭 & B2B 계약</h4>
+          <p>한국에서 포트폴리오를 제출하고 면접 통과 시, 입국 및 첫 매칭을 확정하고 B2B 안심 보증 계약을 체결합니다.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">02</div>
+          <h4>퍼스 입국 & 픽업</h4>
+          <p>퍼스 공항 입국 직후, 플랫폼 스태프가 무료 공항 픽업 및 임시 유심칩 개설 등 초기 정착을 직접 돕습니다.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">03</div>
+          <h4>보증 셰어 입주</h4>
+          <p>플랫폼이 확보한 쾌적하고 예쁜 Morley/Scarborough 셰어하우스 독방에 헤매지 않고 즉시 입실합니다.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">04</div>
+          <h4>화이트카드 패스</h4>
+          <p>건설 현장 출입을 위한 화이트 카드 취득과 국가 USI 번호 개설, PPE 필수 안전장구 장만까지 밀착 가이드합니다.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">05</div>
+          <h4>현장 출근 & 주간 정산</h4>
+          <p>매칭된 카풀로 현장에 기분 좋게 출근하고, 고용주 체불 걱정 없이 매주 금요일 플랫폼에서 100% 임금을 받습니다.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-anchor logo-icon"></i>
+          <span class="logo-text">Perth<span>Link</span></span>
+        </div>
+        <p>대표 머릿속의 업무 지식을 실행 형태로 구조화하고 자동화하는 1인 기업 <strong>when1lone</strong>의 정밀 컨설팅 프로젝트.</p>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2026 when1lone. All rights reserved.</p>
+        <p>본 플랫폼은 한국 직업안정법 및 호주 공정근로기준법(Fair Work Act)을 100% 준수합니다. 구직자에게 매칭 수수료를 절대 청구하지 않습니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Detail Pop-up Modal (Airbnb Style) -->
+  <div class="modal" id="detailModal" onclick="closeDetailModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeDetailModal()"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="modal-body-layout">
+        <div class="modal-left-details">
+          <div class="modal-gallery">
+            <img src="assets/perth_house.png" alt="숙소 대형 뷰" class="gallery-large" id="modalImgLarge">
+            <div class="gallery-thumbs">
+              <img src="assets/perth_house.png" alt="숙소 썸네일" class="thumb active" onclick="changeModalImg('assets/perth_house.png', this)">
+              <img src="assets/tile_work.png" alt="현장 썸네일" class="thumb" onclick="changeModalImg('assets/tile_work.png', this)">
+              <img src="assets/perth_lifestyle.png" alt="퍼스 해변 썸네일" class="thumb" onclick="changeModalImg('assets/perth_lifestyle.png', this)">
+            </div>
+          </div>
+          
+          <div class="modal-info-block">
+            <h2 id="modalTitle">Morley 신축 타운하우스 타일 조공 + 북유럽풍 감성 셰어 독방</h2>
+            <div class="modal-ratings-meta">
+              <span class="rating"><i class="fa-solid fa-star"></i> <span id="modalRating">4.97</span></span>
+              <span>•</span>
+              <span class="location" id="modalLocation">Morley, 퍼스 북동부</span>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Host Info -->
+            <div class="host-profile-row">
+              <div class="host-avatar"><i class="fa-solid fa-user-tie"></i></div>
+              <div class="host-text">
+                <h4>현장 호스트(사장님): <span id="modalHost">taeho 대표</span></h4>
+                <p>퍼스 현역 10년 차 빌더/시공사 • 한국 조공 청년 30여 명의 정착을 성공시킨 든든한 멘토</p>
+              </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Package Details -->
+            <div class="details-checklist">
+              <h3><i class="fa-solid fa-compass-drafting"></i> 현장 근로 조건</h3>
+              <ul>
+                <li><i class="fa-solid fa-check"></i> **현장 업무**: 신축 하우스/리조트 타일 욕실 및 바닥 시공 조공 (데모도) 및 기술 전수</li>
+                <li><i class="fa-solid fa-check"></i> **급여 조건**: **일당 AUD $300 ~ $350** (경력 검증 후 조정), 매주 금요일 밀림 없이 100% 정산</li>
+                <li><i class="fa-solid fa-check"></i> **근무 시간**: 주 5일 보장 (평일 06:30 ~ 15:30), 주말 선택 추가 근무 가능</li>
+              </ul>
+              
+              <h3><i class="fa-solid fa-bed"></i> 보증 셰어하우스 조건</h3>
+              <ul>
+                <li><i class="fa-solid fa-check"></i> **주거 환경**: 쾌적한 북유럽 Scandinavian 감성 신축 하우스, **완전 개인 독방 제공**</li>
+                <li><i class="fa-solid fa-check"></i> **인프라**: 초고속 NBN 인터넷, 세탁기/건조기, 침구류 풀 완비, 주당 **AUD $230~$260** (공과금 포함)</li>
+                <li><i class="fa-solid fa-check"></i> **교통 편의**: 매칭된 드라이버 카풀 출퇴근 연계 (출근 편도 무료)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Apply Sticky Card -->
+        <div class="modal-right-card">
+          <div class="sticky-apply-card">
+            <div class="card-header-price">
+              <span class="price-title">일당 (조공)</span>
+              <span class="price-val" id="modalCardPrice">AUD $300 <span>/ 일</span></span>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="card-guarantee-mini">
+              <i class="fa-solid fa-shield-heart"></i>
+              <div>
+                <h5>perthcover 안심 보증 적용 현장</h5>
+                <p>100% 임금 지급 보장 및 셰어하우스 입주 즉시 대기 없음</p>
+              </div>
+            </div>
+            
+            <form id="quickApplyForm" onsubmit="handleApplySubmit(event)">
+              <div class="form-group">
+                <label for="apply-name">성함</label>
+                <input type="text" id="apply-name" required placeholder="홍길동">
+              </div>
+              <div class="form-group">
+                <label for="apply-phone">연락처 / 카카오톡 ID</label>
+                <input type="text" id="apply-phone" required placeholder="010-1234-5678 or KakaoID">
+              </div>
+              <div class="form-group">
+                <label for="apply-experience">시공 관련 경력</label>
+                <select id="apply-experience">
+                  <option value="none">초보/경력 없음 (열정 가득)</option>
+                  <option value="under-1">1년 미만 조공</option>
+                  <option value="1-3">1년 ~ 3년 경력자 (중간공)</option>
+                  <option value="over-3">3년 이상 기공</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-brand btn-full">안심 매칭 지원서 제출</button>
+            </form>
+            <p class="card-disclaimer">지원서 제출 후 24시간 이내에 when1lone 대표가 직접 카톡 연락을 드려 1:1 심층 매칭 세션을 진행합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apply Form Success Alert Modal -->
+  <div class="modal" id="successModal" onclick="closeSuccessModal()">
+    <div class="modal-content success-content" onclick="event.stopPropagation()">
+      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h2>지원서가 성공적으로 접수되었습니다!</h2>
+      <p>대표 머릿속의 지식을 직접 실행하는 비즈니스 파트너, **when1lone**이 직접 사장님들과의 B2B 용역 계약 조율 및 셰어하우스 방 상태를 꼼꼼히 확인한 후 24시간 이내에 직접 연락을 드리겠습니다.</p>
+      <button class="btn btn-brand" onclick="closeSuccessModal()">확인</button>
+    </div>
+  </div>
+
+  <!-- Javascript File -->
+  <script src="app.js"></script>
+</body>
+</html>
